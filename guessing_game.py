@@ -1,15 +1,11 @@
 """
-Python Web Development Techdegree
-Project 1 - Number Guessing Game
+Number Guessing Game
 --------------------------------
-
-For this first project we will be using Workspaces. 
-
-NOTE: If you strongly prefer to work locally on your own computer, you can totally do that by clicking: File -> Download Workspace in the file menu after you fork the snapshot of this workspace.
-
 """
 
 import random
+
+
 
 
 def start_game():
@@ -17,6 +13,9 @@ def start_game():
     
     When the program starts, we want to:
     ------------------------------------
+    
+
+
     1. Display an intro/welcome message to the player.
     2. Store a random number as the answer/solution.
     3. Continuously prompt the player for a guess.
@@ -29,7 +28,25 @@ def start_game():
     
     ( You can add more features/enhancements if you'd like to. )
     """
-    # write your code inside this function.
+    randNumber = random.randint(1,10)
+    name = input("What is your name? ").capitalize()
+    print("Hello {}, and welcome to the number guessing game".format(name))
+    print("I am thinking of a number between 1 and 10, what is it?")
+    
+    while True:
+        attempts = 1
+        guess = int(input("What is my number? ")
+        if guess == randNumber:
+            print("You guessed correctly, it took {} attempts, thanks playing!!! The Game will end".format(attempts))
+            break
+        elif guess < randNumber:
+            print("The number is higher, try again")
+        elif guess > randNumber:
+            print("The number is lower, try again")
+
+        attempts += 1
+        
+
 
 
 if __name__ == '__main__':
