@@ -19,21 +19,28 @@ def start_game():
     
     while True:
         attempts += 1
-        guess = int(input("What is my number? "))
-        if guess == randNumber:
-            print("You guessed correctly, it took {} attempt/s, thanks playing!!! \nThe Game will end".format(attempts))    
-            if attempts < highScore:
-                highScore = attempts    
-            if input("Would you like to play again? y/n? ").upper() == "Y":
-                 print("The current highscore/least number of attempts is {}".format(highScore))
-                 randNumber = random.randint(1,10)
-                 continue
-            else:
-                break
-        elif guess < randNumber:
-            print("The number is higher, try again")
-        elif guess > randNumber:
-            print("The number is lower, try again")
+        try:
+            guess = int(input("What is my number? "))
+            if guess > 10 or guess < 0:
+                raise ValueError("Enter a value within the range 1 - 10")
+            if guess == randNumber:
+                print("You guessed correctly, it took {} attempt/s, thanks playing!".format(attempts))    
+                if attempts < highScore:
+                    highScore = attempts    
+                if input("Would you like to play again? y/n? ").upper() == "Y":
+                    print("The current highscore/least number of attempts is {}".format(highScore))
+                    randNumber = random.randint(1,10)
+                    continue
+                else:
+                    print("Thank for playing the 'Number Guessing Game', goodbye")
+                    break
+            elif guess < randNumber:
+                print("The number is higher, try again")
+            elif guess > randNumber:
+                print("The number is lower, try again")
+        except ValueError as err:
+            print("{}".format(err))
+            print("Please enter a correct value")
 
         
         
