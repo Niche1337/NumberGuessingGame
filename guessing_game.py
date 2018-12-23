@@ -2,14 +2,12 @@
 Number Guessing Game
 --------------------------------
 """
+#Going for Exceed Expectations
 
 import random
 
-
-
-
 def start_game():
-    highScore = 100
+    highScore = 15
     attempts = 0
     randNumber = random.randint(1,10)
     name = input("What is your name? ").capitalize()
@@ -36,16 +34,11 @@ def start_game():
                     break
             elif guess < randNumber:
                 print("The number is higher, try again")
-            elif guess > randNumber:
+            elif guess > randNumber:    
                 print("The number is lower, try again")
         except ValueError as err:
             print("{}".format(err))
             print("Please enter a correct value")
-
-        
-        
-
-
 
 if __name__ == '__main__':
     # Kick off the program by calling the start_game function.
