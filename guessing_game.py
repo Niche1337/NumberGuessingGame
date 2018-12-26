@@ -28,6 +28,7 @@ def start_game():
                 if input("Would you like to play again? y/n? ").upper() == "Y":
                     print("The current highscore/least number of attempts is {}".format(highScore))
                     randNumber = random.randint(1,10)
+                    attempts = 0
                     continue
                 else:
                     print("Thank for playing the 'Number Guessing Game', goodbye")
